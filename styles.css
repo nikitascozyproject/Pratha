@@ -1,14 +1,15 @@
 /* =========================================================
-   PRATHA — STYLES
+   PRATHA
    Indian heritage, made contemporary.
+   Editorial + heritage design system
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    RESET
-   --------------------------------------------------------- */
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -24,7 +25,7 @@ body {
   color: #302b25;
   font-family: "EB Garamond", Georgia, serif;
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -38,15 +39,17 @@ a {
   text-decoration: none;
 }
 
-button,
-input {
-  font: inherit;
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    COLOUR SYSTEM
-   --------------------------------------------------------- */
+   ========================================================= */
 
 :root {
   --ivory: #f2eee3;
@@ -65,61 +68,86 @@ input {
 }
 
 
-/* ---------------------------------------------------------
-   GLOBAL TYPE
-   --------------------------------------------------------- */
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
 
 h1,
 h2,
-h3,
-h4 {
-  margin: 0;
+h3 {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 400;
-  line-height: 0.98;
   color: var(--ink);
 }
 
 h1 {
   font-size: clamp(4rem, 8vw, 8rem);
+  line-height: 0.91;
   letter-spacing: -0.035em;
 }
 
 h2 {
-  font-size: clamp(3rem, 6vw, 6rem);
-  letter-spacing: -0.025em;
+  font-size: clamp(3.2rem, 6.5vw, 6.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
 }
 
 h3 {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 3.5vw, 3.4rem);
+  line-height: 0.98;
 }
 
-p {
-  margin: 0;
+em {
+  font-style: italic;
+  font-weight: 300;
 }
 
 .eyebrow {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
+
   font-family: "EB Garamond", Georgia, serif;
   font-size: 11px;
+  line-height: 1;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: rgba(48, 43, 37, 0.68);
+
+  color: rgba(48, 43, 37, 0.62);
 }
 
 
-/* ---------------------------------------------------------
-   NAVIGATION
-   --------------------------------------------------------- */
+/* =========================================================
+   HEADER / NAVIGATION
+   ========================================================= */
 
-header,
-.site-header,
-nav {
+header {
   position: relative;
   z-index: 20;
 
+  min-height: 76px;
+  padding: 0 5vw;
+
   display: flex;
   align-items: center;
+  justify-content: space-between;
+
+  background: var(--ivory);
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  flex-shrink: 0;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 25px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   gap: 34px;
 
   font-family: "EB Garamond", Georgia, serif;
@@ -133,9 +161,10 @@ nav a {
 
 nav a::after {
   content: "";
+
   position: absolute;
   left: 0;
-  bottom: -5px;
+  bottom: -6px;
 
   width: 100%;
   height: 1px;
@@ -144,6 +173,7 @@ nav a::after {
 
   transform: scaleX(0);
   transform-origin: right;
+
   transition: transform 0.3s ease;
 }
 
@@ -151,82 +181,11 @@ nav a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
-  header {
-  min-height: 76px;
-  padding: 0 5vw;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background: var(--ivory);
-  border-bottom: 1px solid var(--line);
-}
-
-.navbar,
-.site-nav {
-  min-height: 76px;
-  padding: 0 5vw;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo,
-.brand {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 25px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 34px;
-
-  font-family: "EB Garamond", Georgia, serif;
-  font-size: 15px;
-}
-
-.nav-links a {
-  position: relative;
-}
-
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-
-  width: 100%;
-  height: 1px;
-
-  background: currentColor;
-
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-.nav-links a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    HERO
-   --------------------------------------------------------- */
-
-/*
-   IMPORTANT:
-   The photograph is now the background of the hero itself.
-
-   FILE:
-   pratha-hero-image.png
-*/
+   ========================================================= */
 
 .hero {
   position: relative;
@@ -239,82 +198,59 @@ nav a:hover::after {
 
   overflow: hidden;
 
-  background-image:
-    linear-gradient(
-      90deg,
-      rgba(24, 18, 14, 0.58) 0%,
-      rgba(24, 18, 14, 0.38) 35%,
-      rgba(24, 18, 14, 0.10) 68%,
-      rgba(24, 18, 14, 0.05) 100%
-    ),
-    url("pratha-hero-image.png");
-
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+  background: #3c3027;
 }
 
-/* Dark overlay behind hero text */
+/* Actual photograph */
 
-.hero::before {
-  content: "";
+.hero-image {
   position: absolute;
   inset: 0;
 
-  background: linear-gradient(
-    90deg,
-    rgba(20, 15, 11, 0.62) 0%,
-    rgba(20, 15, 11, 0.38) 38%,
-    rgba(20, 15, 11, 0.08) 70%,
-    rgba(20, 15, 11, 0) 100%
-  );
-
-  z-index: 2;
-  pointer-events: none;
-}
-
-/* Prevent any old split-image layout from surviving */
-
-.hero-image,
-.hero-photo,
-.hero-media {
-  position: absolute !important;
-
-  inset: 0 !important;
-
-  width: 100% !important;
-  height: 100% !important;
-
-  margin: 0 !important;
-  padding: 0 !important;
+  width: 100%;
+  height: 100%;
 
   z-index: 0;
 }
 
-.hero-image img,
-.hero-photo img,
-.hero-media img {
-  width: 100% !important;
-  height: 100% !important;
+.hero-image img {
+  width: 100%;
+  height: 100%;
 
-  object-fit: cover !important;
-  object-position: center center !important;
+  object-fit: cover;
+  object-position: center center;
 }
 
+/* Darker area behind the text */
 
-/* Hero text */
+.hero::before {
+  content: "";
 
-.hero-content,
-.hero-copy,
-.hero-text {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20, 15, 11, 0.66) 0%,
+      rgba(20, 15, 11, 0.40) 35%,
+      rgba(20, 15, 11, 0.10) 68%,
+      rgba(20, 15, 11, 0) 100%
+    );
+
+  pointer-events: none;
+}
+
+.hero-copy {
   position: relative;
-  z-index: 5;
+  z-index: 2;
 
-  width: min(620px, 90%);
+  width: min(650px, 86%);
 
   margin-left: 8vw;
-
-  padding: 8vh 0;
+  padding: 10vh 0;
 }
 
 .hero .eyebrow {
@@ -322,23 +258,20 @@ nav a:hover::after {
 }
 
 .hero h1 {
-  max-width: 700px;
-
   color: #fffaf0;
 
   text-shadow:
-    0 2px 18px rgba(0, 0, 0, 0.18);
+    0 3px 22px rgba(0, 0, 0, 0.22);
 }
 
 .hero h1 em {
-  font-style: italic;
-  font-weight: 300;
+  color: #fffaf0;
 }
 
-.hero p {
-  max-width: 480px;
+.hero-copy > p:not(.eyebrow) {
+  max-width: 490px;
 
-  margin-top: 30px;
+  margin-top: 32px;
 
   color: rgba(255, 250, 239, 0.92);
 
@@ -352,387 +285,625 @@ nav a:hover::after {
   gap: 12px;
 
   margin-top: 38px;
-  padding-bottom: 5px;
+  padding-bottom: 6px;
 
   color: #fffaf0;
 
-  border-bottom: 1px solid rgba(255, 250, 239, 0.75);
+  border-bottom: 1px solid rgba(255, 250, 239, 0.7);
 
   font-size: 16px;
 }
 
 
-/* ---------------------------------------------------------
-   GENERAL SECTIONS
-   --------------------------------------------------------- */
-
-.section {
-  position: relative;
-
-  padding: 110px 7vw;
-}
-
-.section-inner {
-  width: min(1200px, 100%);
-  margin: 0 auto;
-}
-
-.section-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 7vw;
-
-  align-items: center;
-}
-
-
-/* ---------------------------------------------------------
+/* =========================================================
    PHILOSOPHY
-   --------------------------------------------------------- */
+   ========================================================= */
 
 .philosophy {
-  /* ---------------------------------------------------------
-   PHILOSOPHY
-   --------------------------------------------------------- */
-
-.philosophy {
-  padding: 140px 8vw 150px;
+  padding: 145px 8vw 155px;
 
   background: var(--ivory);
 }
 
 .philosophy .eyebrow {
-  margin-bottom: 38px;
+  margin-bottom: 40px;
 }
 
 .philosophy h2 {
-  max-width: 900px;
-
-  font-size: clamp(3.5rem, 7vw, 7rem);
-  line-height: 0.94;
-  letter-spacing: -0.03em;
+  max-width: 1000px;
 }
 
 .philosophy h2 em {
   font-style: italic;
-  font-weight: 300;
 }
 
 .philosophy > p:last-child {
-  max-width: 620px;
+  max-width: 650px;
 
-  margin-top: 55px;
+  margin-top: 58px;
 
   color: var(--soft-ink);
 
   font-size: 21px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   COLLECTION
+   ========================================================= */
+
+.collection {
+  padding: 125px 7vw 150px;
+
+  background: var(--cream);
+}
+
+/* Collection introduction */
+
+.section-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+
+  gap: 8vw;
+
+  align-items: end;
+
+  margin-bottom: 75px;
+}
+
+.section-top h2 {
+  margin-top: 10px;
+}
+
+.section-top > p {
+  max-width: 420px;
+
+  color: var(--soft-ink);
+
+  font-size: 19px;
   line-height: 1.55;
 }
 
 
-/* ---------------------------------------------------------
-   COLLECTION
-   --------------------------------------------------------- */
+/* Textile feature */
 
-.collection {
-  background: #e5dcc9;
-}
-
-.collection-header {
-  max-width: 720px;
-  margin-bottom: 60px;
-}
-
-.collection-header h2 {
-  margin-bottom: 25px;
-}
-
-.collection-header p {
-  max-width: 550px;
-
-  color: var(--soft-ink);
-  font-size: 20px;
-}
-
-.collection-image {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-
-  overflow: hidden;
-
-  background: var(--sand);
-}
-
-.collection-image img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-}
-
-
-/* ---------------------------------------------------------
-   TEXTILE / DETAIL IMAGE
-   --------------------------------------------------------- */
-
-.image-block {
-  width: 100%;
-  overflow: hidden;
-}
-
-.image-block img {
-  width: 100%;
-  height: auto;
-
-  object-fit: cover;
-}
-
-
-/* ---------------------------------------------------------
-   HOUSE SECTION
-   --------------------------------------------------------- */
-
-.house {
-  background: var(--ivory);
-}
-
-.house h2 {
-  max-width: 760px;
-}
-
-.house h2 em {
-  font-style: italic;
-}
-
-.house-copy {
-  max-width: 600px;
-
-  margin-top: 34px;
-
-  color: var(--soft-ink);
-
-  font-size: 20px;
-}
-
-
-/* ---------------------------------------------------------
-   JOURNAL
-   --------------------------------------------------------- */
-
-.journal {
-  background: var(--cream);
-}
-
-.journal-heading {
-  margin-bottom: 60px;
-}
-
-.journal-list {
-  border-top: 1px solid var(--line);
-}
-
-.journal-item {
-  display: grid;
-  grid-template-columns: 80px 1fr auto;
-  gap: 30px;
-
-  align-items: center;
-
-  padding: 28px 0;
-
-  border-bottom: 1px solid var(--line);
-}
-
-.journal-number {
-  font-size: 13px;
-  letter-spacing: 0.15em;
-  color: var(--soft-ink);
-}
-
-.journal-title {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 28px;
-}
-
-.journal-arrow {
-  font-size: 20px;
-}
-
-
-/* ---------------------------------------------------------
-   NEWSLETTER
-   --------------------------------------------------------- */
-
-.newsletter {
+.textile-hero {
   position: relative;
 
-  padding: 100px 7vw;
+  min-height: 62vh;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  overflow: hidden;
 
   background:
     linear-gradient(
-      rgba(76, 39, 27, 0.72),
-      rgba(76, 39, 27, 0.72)
+      135deg,
+      #a58d6e 0%,
+      #d2bfa0 35%,
+      #7f684f 70%,
+      #3d3027 100%
+    );
+}
+
+/*
+   Abstract textile field.
+   This gives us a visual placeholder until
+   the actual Chiniya product photography exists.
+*/
+
+.woven-textile {
+  position: absolute;
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,0.08) 0,
+      rgba(255,255,255,0.08) 1px,
+      transparent 1px,
+      transparent 7px
     ),
-    url("pratha-hero-image.png");
+    repeating-linear-gradient(
+      0deg,
+      rgba(48,43,37,0.06) 0,
+      rgba(48,43,37,0.06) 1px,
+      transparent 1px,
+      transparent 8px
+    );
 
-  background-size: cover;
-  background-position: center;
+  mix-blend-mode: multiply;
 }
 
-.newsletter-inner {
-  max-width: 760px;
-  margin: 0 auto;
+.textile-hero > a {
+  position: relative;
+  z-index: 2;
 
-  text-align: center;
+  margin: 0 45px 40px 0;
+  padding-bottom: 6px;
 
   color: #fffaf0;
+
+  border-bottom: 1px solid rgba(255,255,255,0.65);
+
+  font-size: 16px;
 }
 
-.newsletter h2 {
-  color: #fffaf0;
+
+/* Product story */
+
+.product-story {
+  max-width: 850px;
+
+  padding: 150px 5vw 145px 9vw;
 }
 
-.newsletter p {
+.product-story .eyebrow {
+  margin-bottom: 35px;
+}
+
+.product-story h2 {
+  max-width: 850px;
+}
+
+.product-story > p:not(.eyebrow) {
+  max-width: 620px;
+
+  margin-top: 50px;
+
+  color: var(--soft-ink);
+
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.product-story .link {
+  display: inline-flex;
+  gap: 12px;
+
+  margin-top: 38px;
+  padding-bottom: 5px;
+
+  border-bottom: 1px solid var(--ink);
+
+  font-size: 16px;
+}
+
+
+/* Craft image */
+
+.craft-image {
+  position: relative;
+
+  min-height: 55vh;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #665541,
+      #c0a77f 45%,
+      #514537
+    );
+}
+
+/* Architectural suggestion */
+
+.craft-window {
+  position: absolute;
+
+  width: 42%;
+  height: 72%;
+
+  left: 13%;
+  top: 14%;
+
+  border: 10px solid rgba(242,238,227,0.72);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(78,90,61,0.7),
+      rgba(45,55,36,0.3)
+    );
+}
+
+.craft-person {
+  position: absolute;
+
+  width: 28%;
+  height: 68%;
+
+  right: 17%;
+  bottom: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8d4932,
+      #5a3026
+    );
+
+  transform: skewX(-5deg);
+}
+
+
+/* Quiet section */
+
+.quiet {
+  max-width: 900px;
+
+  padding: 145px 5vw 30px 9vw;
+}
+
+.quiet h2 {
+  max-width: 850px;
+}
+
+.quiet > p:last-child {
+  max-width: 650px;
+
+  margin-top: 50px;
+
+  color: var(--soft-ink);
+
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   THE HOUSE
+   ========================================================= */
+
+.house {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+
+  min-height: 80vh;
+
+  background: var(--ivory);
+}
+
+.house-image {
+  position: relative;
+
+  min-height: 70vh;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6b5b49,
+      #c5b293 48%,
+      #5a4939
+    );
+}
+
+/* Courtyard atmosphere */
+
+.courtyard {
+  position: absolute;
+  inset: 9%;
+
+  border: 1px solid rgba(242,238,227,0.5);
+
+  background:
+    radial-gradient(
+      circle at 50% 75%,
+      rgba(78,90,61,0.75),
+      transparent 25%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(242,238,227,0.18),
+      transparent 35%,
+      rgba(48,43,37,0.18)
+    );
+}
+
+.house-copy {
+  align-self: center;
+
+  padding: 100px 9vw 100px 7vw;
+}
+
+.house-copy h2 {
+  margin-bottom: 45px;
+}
+
+.house-copy > p:not(.eyebrow) {
+  max-width: 520px;
+
   margin-top: 25px;
 
-  color: rgba(255, 250, 239, 0.85);
+  color: var(--soft-ink);
+
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.house-copy .link {
+  display: inline-flex;
+  gap: 12px;
+
+  margin-top: 40px;
+  padding-bottom: 5px;
+
+  border-bottom: 1px solid var(--ink);
+}
+
+
+/* =========================================================
+   JOURNAL
+   ========================================================= */
+
+.journal {
+  padding: 125px 7vw 140px;
+
+  background: #e5dcc9;
+}
+
+.journal > h2 {
+  margin-bottom: 75px;
+}
+
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 3vw;
+
+  margin-bottom: 65px;
+}
+
+.journal-grid article {
+  min-width: 0;
+}
+
+.journal-image {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  margin-bottom: 28px;
+
+  overflow: hidden;
+}
+
+/* Three slightly different atmospheric treatments */
+
+.textile-detail {
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #8d4932 0,
+      #8d4932 3px,
+      #b77c62 3px,
+      #b77c62 7px
+    );
+}
+
+.loom-detail {
+  background:
+    linear-gradient(
+      135deg,
+      #5c4d3b,
+      #b39b76 50%,
+      #493a2f
+    );
+}
+
+.stone-detail {
+  background:
+    linear-gradient(
+      135deg,
+      #aaa08d,
+      #e0d7c5 50%,
+      #756b5d
+    );
+}
+
+.journal-grid small {
+  display: block;
+
+  margin-bottom: 13px;
+
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+.journal-grid h3 {
+  margin-bottom: 18px;
+
+  font-size: clamp(2rem, 3vw, 3rem);
+}
+
+.journal-grid article > p {
+  max-width: 360px;
+
+  color: var(--soft-ink);
+
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.journal > .link {
+  display: inline-flex;
+  gap: 12px;
+
+  padding-bottom: 5px;
+
+  border-bottom: 1px solid var(--ink);
+
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact {
+  padding: 145px 7vw 160px;
+
+  background: var(--ivory);
+
+  text-align: center;
+}
+
+.contact .eyebrow {
+  margin-bottom: 35px;
+}
+
+.contact h2 {
+  max-width: 850px;
+
+  margin: 0 auto;
+}
+
+.contact > p:not(.eyebrow) {
+  margin-top: 40px;
+
+  color: var(--soft-ink);
 
   font-size: 19px;
 }
 
-.newsletter-form {
-  display: flex;
+.email {
+  display: inline-flex;
+  gap: 12px;
 
-  max-width: 560px;
+  margin-top: 40px;
+  padding-bottom: 6px;
 
-  margin: 40px auto 0;
+  border-bottom: 1px solid var(--ink);
 
-  border-bottom: 1px solid rgba(255, 250, 239, 0.65);
-}
-
-.newsletter-form input {
-  flex: 1;
-
-  min-width: 0;
-
-  padding: 15px 0;
-
-  border: 0;
-  outline: none;
-
-  background: transparent;
-
-  color: #fffaf0;
-}
-
-.newsletter-form input::placeholder {
-  color: rgba(255, 250, 239, 0.65);
-}
-
-.newsletter-form button {
-  padding: 15px 0 15px 20px;
-
-  border: 0;
-  background: transparent;
-
-  color: #fffaf0;
-
-  cursor: pointer;
+  font-size: 17px;
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    FOOTER
-   --------------------------------------------------------- */
+   ========================================================= */
 
 footer {
-  padding: 65px 7vw 35px;
+  padding: 70px 7vw 40px;
 
-  background: #302b25;
-
-  color: #eee5d5;
-}
-
-.footer-inner {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 
   gap: 50px;
+
+  background: #302b25;
+
+  color: #eee5d5;
+
+  font-size: 14px;
 }
 
-.footer-brand {
+footer strong {
+  display: block;
+
   font-family: "Cormorant Garamond", Georgia, serif;
   font-size: 28px;
+  font-weight: 400;
+
   letter-spacing: 0.18em;
 }
 
-.footer-tagline {
-  margin-top: 12px;
+footer p {
+  margin-top: 10px;
 
-  color: rgba(238, 229, 213, 0.65);
-
-  font-size: 15px;
-}
-
-.footer-links {
-  display: flex;
-  gap: 30px;
-
-  font-size: 15px;
-}
-
-.footer-bottom {
-  margin-top: 65px;
-  padding-top: 20px;
-
-  border-top: 1px solid rgba(238, 229, 213, 0.18);
-
-  color: rgba(238, 229, 213, 0.5);
-
-  font-size: 13px;
+  color: rgba(238,229,213,0.65);
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .section-top {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .product-story,
+  .quiet {
+    padding-left: 6vw;
+  }
+
+  .house {
+    grid-template-columns: 1fr;
+  }
+
+  .house-image {
+    min-height: 55vh;
+  }
+
+  .house-copy {
+    padding: 90px 8vw;
+  }
+
+  .journal-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .journal-grid article:last-child {
+    grid-column: 1 / -1;
+
+    max-width: calc(50% - 1.5vw);
+  }
+}
+
+
+/* =========================================================
    MOBILE
-   --------------------------------------------------------- */
+   ========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 650px) {
 
   body {
     font-size: 17px;
   }
 
-  .navbar,
-  .site-nav {
+  header {
     min-height: 68px;
 
     padding: 0 22px;
   }
 
-  .logo,
-  .brand {
-    font-size: 22px;
+  .logo {
+    font-size: 21px;
   }
 
-  .nav-links {
-    gap: 15px;
+  nav {
+    gap: 14px;
+
     font-size: 13px;
   }
-
 
   /* HERO */
 
   .hero {
     min-height: calc(100svh - 68px);
-
-    background-position: 62% center;
   }
 
-  .hero-content,
-  .hero-copy,
-  .hero-text {
+  .hero-image img {
+    object-position: 62% center;
+  }
+
+  .hero-copy {
     width: 88%;
 
     margin-left: 6%;
@@ -741,125 +912,159 @@ footer {
   }
 
   .hero h1 {
-    max-width: 90%;
-
-    font-size: clamp(4rem, 18vw, 6.5rem);
+    font-size: clamp(4rem, 18vw, 6rem);
   }
 
-  .hero p {
+  .hero-copy > p:not(.eyebrow) {
     max-width: 360px;
 
     font-size: 18px;
   }
 
 
-  /* SECTIONS */
+  /* PHILOSOPHY */
 
-  .section {
-    padding: 75px 7%;
+  .philosophy {
+    padding: 90px 7% 105px;
   }
 
-  .section-grid {
-    grid-template-columns: 1fr;
-    gap: 45px;
-  }
-
-  .philosophy h2,
-  .house h2 {
+  .philosophy h2 {
     font-size: clamp(3rem, 13vw, 5rem);
+  }
+
+  .philosophy > p:last-child {
+    margin-top: 42px;
+
+    font-size: 18px;
   }
 
 
   /* COLLECTION */
 
-  .collection-image {
-    aspect-ratio: 4 / 5;
+  .collection {
+    padding: 90px 7% 110px;
+  }
+
+  .section-top {
+    margin-bottom: 50px;
+  }
+
+  .section-top h2 {
+    font-size: 4rem;
+  }
+
+  .textile-hero {
+    min-height: 55vh;
+  }
+
+  .textile-hero > a {
+    margin: 0 25px 25px 0;
+  }
+
+  .product-story {
+    padding: 100px 0;
+  }
+
+  .product-story h2 {
+    font-size: clamp(3rem, 13vw, 5rem);
+  }
+
+  .craft-image {
+    min-height: 48vh;
+  }
+
+  .quiet {
+    padding: 100px 0 20px;
+  }
+
+  .quiet h2 {
+    font-size: clamp(3rem, 12vw, 5rem);
+  }
+
+
+  /* HOUSE */
+
+  .house-image {
+    min-height: 48vh;
+  }
+
+  .house-copy {
+    padding: 80px 7%;
+  }
+
+  .house-copy h2 {
+    font-size: 4rem;
   }
 
 
   /* JOURNAL */
 
-  .journal-item {
-    grid-template-columns: 40px 1fr;
-
-    gap: 15px;
+  .journal {
+    padding: 90px 7% 105px;
   }
 
-  .journal-arrow {
-    display: none;
+  .journal > h2 {
+    margin-bottom: 50px;
   }
 
-  .journal-title {
-    font-size: 25px;
+  .journal-grid {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .journal-grid article:last-child {
+    grid-column: auto;
+
+    max-width: none;
   }
 
 
-  /* NEWSLETTER */
+  /* CONTACT */
 
-  .newsletter {
-    padding: 75px 7%;
+  .contact {
+    padding: 100px 7% 115px;
   }
 
-  .newsletter-form {
-    display: block;
-
-    border-bottom: 0;
-  }
-
-  .newsletter-form input {
-    width: 100%;
-
-    border-bottom: 1px solid rgba(255, 250, 239, 0.65);
-  }
-
-  .newsletter-form button {
-    width: 100%;
-
-    margin-top: 10px;
-
-    border-bottom: 1px solid rgba(255, 250, 239, 0.65);
+  .contact h2 {
+    font-size: clamp(3.2rem, 13vw, 5rem);
   }
 
 
   /* FOOTER */
 
-  .footer-inner {
+  footer {
     display: block;
+
+    padding: 55px 7% 35px;
   }
 
-  .footer-links {
-    margin-top: 35px;
-
-    flex-wrap: wrap;
+  footer > div {
+    margin-bottom: 30px;
   }
 
-  .footer-bottom {
-    margin-top: 45px;
-  }
 }
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    SMALL PHONES
-   --------------------------------------------------------- */
+   ========================================================= */
 
 @media (max-width: 480px) {
 
-  .nav-links {
+  nav {
     gap: 10px;
+
     font-size: 12px;
-  }
-
-  .hero h1 {
-    font-size: 4.1rem;
-  }
-
-  .hero p {
-    font-size: 17px;
   }
 
   .eyebrow {
     font-size: 9px;
     letter-spacing: 0.22em;
   }
+
+  .hero h1 {
+    font-size: 4rem;
+  }
+
 }
