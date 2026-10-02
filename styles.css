@@ -1,15 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap');
+/* =========================================================
+   PRATHA — STYLES
+   Indian heritage, made contemporary.
+   ========================================================= */
 
-:root {
-  --paper: #f2ede3;
-  --paper-light: #f7f3ea;
-  --ink: #29251f;
-  --muted: #756d61;
-  --line: rgba(41, 37, 31, 0.18);
-  --olive: #5b6049;
-  --terracotta: #9a5e49;
-  --brown: #704331;
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+
+/* ---------------------------------------------------------
+   RESET
+   --------------------------------------------------------- */
 
 * {
   box-sizing: border-box;
@@ -21,28 +20,17 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
-  color: var(--ink);
+  background: #f2eee3;
+  color: #302b25;
   font-family: "EB Garamond", Georgia, serif;
   font-size: 18px;
-  line-height: 1.48;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Subtle paper texture */
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 999;
-  opacity: 0.12;
-  background-image: radial-gradient(
-    rgba(40, 37, 31, 0.25) 0.4px,
-    transparent 0.4px
-  );
-  background-size: 5px 5px;
-  mix-blend-mode: multiply;
+img {
+  display: block;
+  max-width: 100%;
 }
 
 a {
@@ -50,740 +38,755 @@ a {
   text-decoration: none;
 }
 
-/* --------------------------------
-   HEADER
--------------------------------- */
-
-.header {
-  height: 76px;
-  padding: 0 4.5vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--line);
-  position: relative;
-  z-index: 10;
-  background: var(--paper);
+button,
+input {
+  font: inherit;
 }
 
-.logo {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 25px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+
+/* ---------------------------------------------------------
+   COLOUR SYSTEM
+   --------------------------------------------------------- */
+
+:root {
+  --ivory: #f2eee3;
+  --cream: #e8e0cf;
+  --sand: #d5c9b3;
+  --stone: #aaa08d;
+
+  --ink: #302b25;
+  --soft-ink: #62594e;
+
+  --olive: #4e5a3d;
+  --terracotta: #8d4932;
+  --deep-brown: #4a2d20;
+
+  --line: rgba(48, 43, 37, 0.18);
 }
 
-.header nav {
-  display: flex;
-  gap: 28px;
-  font-size: 14px;
-}
 
-.header nav a {
-  transition: opacity 0.2s ease;
-}
-
-.header nav a:hover {
-  opacity: 0.5;
-}
-
-/* --------------------------------
-   TYPOGRAPHY
--------------------------------- */
-
-.eyebrow {
-  margin: 0;
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 11px;
-  line-height: 1.2;
-  letter-spacing: 0.2em;
-  color: var(--muted);
-}
+/* ---------------------------------------------------------
+   GLOBAL TYPE
+   --------------------------------------------------------- */
 
 h1,
 h2,
-h3 {
-  margin-top: 0;
+h3,
+h4 {
+  margin: 0;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 400;
-  line-height: 0.96;
+  line-height: 0.98;
+  color: var(--ink);
 }
 
 h1 {
-  font-size: clamp(65px, 7vw, 112px);
-  letter-spacing: -0.04em;
-  margin-bottom: 30px;
+  font-size: clamp(4rem, 8vw, 8rem);
+  letter-spacing: -0.035em;
 }
 
 h2 {
-  font-size: clamp(48px, 5.5vw, 78px);
+  font-size: clamp(3rem, 6vw, 6rem);
   letter-spacing: -0.025em;
 }
 
 h3 {
-  font-size: 38px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
 }
 
-em {
-  font-style: italic;
+p {
+  margin: 0;
 }
 
-.link {
-  display: inline-block;
-  margin-top: 20px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid currentColor;
-  font-size: 16px;
-  transition: opacity 0.2s ease;
+.eyebrow {
+  margin-bottom: 22px;
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(48, 43, 37, 0.68);
 }
 
-.link:hover {
-  opacity: 0.55;
+
+/* ---------------------------------------------------------
+   NAVIGATION
+   --------------------------------------------------------- */
+
+header,
+.site-header,
+nav {
+  position: relative;
+  z-index: 20;
 }
 
-.link span,
-.email span {
-  margin-left: 15px;
+header {
+  background: var(--ivory);
+  border-bottom: 1px solid var(--line);
 }
 
-/* --------------------------------
+.navbar,
+.site-nav {
+  min-height: 76px;
+  padding: 0 5vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo,
+.brand {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 25px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+
+  font-family: "EB Garamond", Georgia, serif;
+  font-size: 15px;
+}
+
+.nav-links a {
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+
+  width: 100%;
+  height: 1px;
+
+  background: currentColor;
+
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+
+/* ---------------------------------------------------------
    HERO
--------------------------------- */
+   --------------------------------------------------------- */
 
 /*
-   The photograph is the entire hero background.
-   File must be named:
+   IMPORTANT:
+   The photograph is now the background of the hero itself.
 
-   pratha-hero.png
+   FILE:
+   pratha-hero-image.png
 */
 
 .hero {
   position: relative;
+
   min-height: calc(100vh - 76px);
-  overflow: hidden;
+  width: 100%;
+
   display: flex;
   align-items: center;
-  background: #5d5043;
-}
 
-.hero-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("pratha-hero.png");
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(24, 18, 14, 0.58) 0%,
+      rgba(24, 18, 14, 0.38) 35%,
+      rgba(24, 18, 14, 0.10) 68%,
+      rgba(24, 18, 14, 0.05) 100%
+    ),
+    url("pratha-hero-image.png");
+
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+}
+
+
+/* Prevent any old split-image layout from surviving */
+
+.hero-image,
+.hero-photo,
+.hero-media {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
   z-index: 0;
 }
 
-/*
-   Gentle darkening over the photograph.
-   This lets the cream text remain readable
-   without making the image look artificial.
-*/
+.hero-image img,
+.hero-photo img,
+.hero-media img {
+  width: 100% !important;
+  height: 100% !important;
 
-.hero-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(24, 17, 12, 0.68) 0%,
-      rgba(24, 17, 12, 0.42) 38%,
-      rgba(24, 17, 12, 0.12) 78%,
-      rgba(24, 17, 12, 0.05) 100%
-    );
+  object-fit: cover !important;
+  object-position: center center !important;
 }
 
-/*
-   These belonged to the old CSS illustration.
-   They are deliberately disabled.
-*/
 
-.hero-architecture,
-.hero-tulsi {
-  display: none !important;
-}
+/* Hero text */
 
-.hero-copy {
+.hero-content,
+.hero-copy,
+.hero-text {
   position: relative;
-  z-index: 2;
-  width: min(650px, 90%);
-  padding: 9vw 7vw;
+  z-index: 5;
+
+  width: min(620px, 90%);
+
+  margin-left: 8vw;
+
+  padding: 8vh 0;
+}
+
+.hero .eyebrow {
+  color: rgba(255, 250, 239, 0.82);
+}
+
+.hero h1 {
+  max-width: 700px;
+
   color: #fffaf0;
+
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.18);
 }
 
-.hero-copy .eyebrow {
-  color: rgba(255, 250, 240, 0.84);
+.hero h1 em {
+  font-style: italic;
+  font-weight: 300;
 }
 
-.hero-copy h1 {
-  max-width: 620px;
-  margin-top: 25px;
-  margin-bottom: 30px;
+.hero p {
+  max-width: 480px;
+
+  margin-top: 30px;
+
+  color: rgba(255, 250, 239, 0.92);
+
+  font-size: 20px;
+  line-height: 1.45;
 }
 
-.hero-copy p:not(.eyebrow) {
-  max-width: 450px;
-  color: rgba(255, 250, 240, 0.92);
-}
+.hero a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
 
-.hero-copy .link {
+  margin-top: 38px;
+  padding-bottom: 5px;
+
   color: #fffaf0;
-  border-bottom-color: #fffaf0;
+
+  border-bottom: 1px solid rgba(255, 250, 239, 0.75);
+
+  font-size: 16px;
 }
 
-/* --------------------------------
+
+/* ---------------------------------------------------------
+   GENERAL SECTIONS
+   --------------------------------------------------------- */
+
+.section {
+  position: relative;
+
+  padding: 110px 7vw;
+}
+
+.section-inner {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7vw;
+
+  align-items: center;
+}
+
+
+/* ---------------------------------------------------------
    PHILOSOPHY
--------------------------------- */
+   --------------------------------------------------------- */
 
 .philosophy {
-  padding: 11vw 9vw;
-  border-top: 1px solid var(--line);
-  max-width: 1250px;
+  background: var(--ivory);
 }
 
 .philosophy h2 {
-  max-width: 950px;
-  margin: 25px 0 45px;
-  font-size: clamp(50px, 6vw, 86px);
+  max-width: 850px;
 }
 
-.philosophy > p:last-child {
-  max-width: 520px;
-  margin-left: auto;
-  color: #5c554b;
+.philosophy h2 em {
+  font-style: italic;
 }
 
-/* --------------------------------
+.philosophy-copy {
+  max-width: 620px;
+
+  margin-top: 40px;
+
+  color: var(--soft-ink);
+
+  font-size: 21px;
+  line-height: 1.55;
+}
+
+
+/* ---------------------------------------------------------
    COLLECTION
--------------------------------- */
+   --------------------------------------------------------- */
 
 .collection {
-  padding: 9vw 9vw;
+  background: #e5dcc9;
 }
 
-.section-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 55px;
+.collection-header {
+  max-width: 720px;
+  margin-bottom: 60px;
 }
 
-.section-top h2 {
-  margin: 20px 0 0;
+.collection-header h2 {
+  margin-bottom: 25px;
 }
 
-.section-top > p {
-  margin: 0;
-  color: var(--muted);
-  text-align: right;
+.collection-header p {
+  max-width: 550px;
+
+  color: var(--soft-ink);
+  font-size: 20px;
 }
 
-/* --------------------------------
-   CHINIYA TEXTILE
--------------------------------- */
-
-.textile-hero {
-  position: relative;
+.collection-image {
   width: 100%;
-  max-width: 1050px;
-  height: min(68vw, 720px);
-  margin: 0 auto;
+  aspect-ratio: 4 / 5;
+
   overflow: hidden;
 
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(78, 48, 20, 0.25) 0 2px,
-      transparent 2px 9px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      rgba(93, 58, 25, 0.18) 0 1px,
-      transparent 1px 13px
-    ),
-    linear-gradient(
-      135deg,
-      #8c6a40,
-      #d4bd8e 42%,
-      #76532e 72%,
-      #cdb583
-    );
+  background: var(--sand);
 }
 
-.woven-textile {
-  position: absolute;
-  inset: 0;
-
-  background:
-    repeating-linear-gradient(
-      45deg,
-      rgba(255, 255, 255, 0.13) 0 1px,
-      transparent 1px 11px
-    );
-
-  opacity: 0.8;
-}
-
-.textile-hero a {
-  position: absolute;
-  left: 30px;
-  bottom: 28px;
-
-  color: white;
-  border-bottom: 1px solid white;
-  padding-bottom: 4px;
-
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
-}
-
-/* --------------------------------
-   PRODUCT STORY
--------------------------------- */
-
-.product-story {
-  max-width: 590px;
-  margin: 9vw 0 7vw auto;
-}
-
-.product-story h2 {
-  margin: 20px 0 30px;
-}
-
-.product-story p:not(.eyebrow) {
-  color: #595248;
-}
-
-/* --------------------------------
-   CRAFT IMAGE
--------------------------------- */
-
-.craft-image {
-  position: relative;
+.collection-image img {
   width: 100%;
-  max-width: 900px;
-  height: min(62vw, 650px);
-  margin: 0 auto;
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      120deg,
-      #75634d,
-      #b59d7b 45%,
-      #514538
-    );
-}
-
-.craft-window {
-  position: absolute;
-  width: 43%;
-  height: 70%;
-  left: 8%;
-  top: 15%;
-
-  border: 10px solid #50483c;
-  background: #cbbda6;
-}
-
-.craft-window::before,
-.craft-window::after {
-  content: "";
-  position: absolute;
-  background: #50483c;
-}
-
-.craft-window::before {
-  width: 6px;
   height: 100%;
-  left: 50%;
+
+  object-fit: cover;
 }
 
-.craft-window::after {
+
+/* ---------------------------------------------------------
+   TEXTILE / DETAIL IMAGE
+   --------------------------------------------------------- */
+
+.image-block {
   width: 100%;
-  height: 6px;
-  top: 50%;
+  overflow: hidden;
 }
 
-.craft-person {
-  position: absolute;
-  width: 30%;
-  height: 80%;
-  right: 17%;
-  bottom: 0;
+.image-block img {
+  width: 100%;
+  height: auto;
 
-  background:
-    linear-gradient(
-      120deg,
-      #6b3024,
-      #a3543b
-    );
-
-  border-radius: 50% 50% 0 0;
+  object-fit: cover;
 }
 
-/* --------------------------------
-   QUIETER DETAILS
--------------------------------- */
 
-.quiet {
-  max-width: 650px;
-  margin: 7vw 0 10vw;
-}
-
-.quiet h2 {
-  margin: 20px 0 30px;
-  font-size: clamp(50px, 5vw, 72px);
-}
-
-.quiet p:not(.eyebrow) {
-  color: #595248;
-}
-
-/* --------------------------------
-   THE HOUSE
--------------------------------- */
+/* ---------------------------------------------------------
+   HOUSE SECTION
+   --------------------------------------------------------- */
 
 .house {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  border-top: 1px solid var(--line);
+  background: var(--ivory);
 }
 
-.house-image {
-  position: relative;
-  min-height: 600px;
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      135deg,
-      #8c806b,
-      #b9aa91
-    );
+.house h2 {
+  max-width: 760px;
 }
 
-.courtyard {
-  position: absolute;
-  width: 58%;
-  height: 65%;
-  left: 21%;
-  top: 15%;
-
-  border: 9px solid #665d4e;
-  background: #cfc2aa;
-}
-
-.courtyard::before {
-  content: "";
-  position: absolute;
-
-  width: 4px;
-  height: 65%;
-  left: 50%;
-  bottom: 0;
-
-  background: var(--olive);
+.house h2 em {
+  font-style: italic;
 }
 
 .house-copy {
-  padding: 10vw 9vw;
-  align-self: center;
+  max-width: 600px;
+
+  margin-top: 34px;
+
+  color: var(--soft-ink);
+
+  font-size: 20px;
 }
 
-.house-copy h2 {
-  margin: 20px 0 30px;
-}
 
-.house-copy p {
-  max-width: 480px;
-}
-
-.house-copy p:not(.eyebrow) {
-  color: #595248;
-}
-
-/* --------------------------------
+/* ---------------------------------------------------------
    JOURNAL
--------------------------------- */
+   --------------------------------------------------------- */
 
 .journal {
-  padding: 10vw 9vw;
+  background: var(--cream);
+}
+
+.journal-heading {
+  margin-bottom: 60px;
+}
+
+.journal-list {
   border-top: 1px solid var(--line);
 }
 
-.journal > h2 {
-  margin: 20px 0 55px;
-}
-
-.journal-grid {
+.journal-item {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 4vw;
+  grid-template-columns: 80px 1fr auto;
+  gap: 30px;
+
+  align-items: center;
+
+  padding: 28px 0;
+
+  border-bottom: 1px solid var(--line);
 }
 
-.journal article {
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
-}
-
-.journal-image {
-  height: 230px;
-  margin-bottom: 20px;
-}
-
-.textile-detail {
-  background:
-    repeating-linear-gradient(
-      0deg,
-      #8a4b32 0 3px,
-      #b77c59 3px 8px
-    );
-}
-
-.loom-detail {
-  background:
-    linear-gradient(
-      135deg,
-      #6f634d,
-      #c1af8d
-    );
-}
-
-.stone-detail {
-  background:
-    linear-gradient(
-      135deg,
-      #877861,
-      #c1b49c
-    );
-}
-
-.journal small {
-  color: var(--muted);
+.journal-number {
+  font-size: 13px;
   letter-spacing: 0.15em;
+  color: var(--soft-ink);
 }
 
-.journal article h3 {
-  margin: 14px 0;
-  font-size: 34px;
+.journal-title {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 28px;
 }
 
-.journal article p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 17px;
+.journal-arrow {
+  font-size: 20px;
 }
 
-.journal > .link {
-  margin-top: 55px;
+
+/* ---------------------------------------------------------
+   NEWSLETTER
+   --------------------------------------------------------- */
+
+.newsletter {
+  position: relative;
+
+  padding: 100px 7vw;
+
+  background:
+    linear-gradient(
+      rgba(76, 39, 27, 0.72),
+      rgba(76, 39, 27, 0.72)
+    ),
+    url("pratha-hero-image.png");
+
+  background-size: cover;
+  background-position: center;
 }
 
-/* --------------------------------
-   CONTACT
--------------------------------- */
+.newsletter-inner {
+  max-width: 760px;
+  margin: 0 auto;
 
-.contact {
-  padding: 11vw 7vw;
   text-align: center;
-  border-top: 1px solid var(--line);
+
+  color: #fffaf0;
 }
 
-.contact h2 {
-  margin: 25px 0 30px;
-  font-size: clamp(55px, 7vw, 95px);
+.newsletter h2 {
+  color: #fffaf0;
 }
 
-.contact p {
-  color: var(--muted);
+.newsletter p {
+  margin-top: 25px;
+
+  color: rgba(255, 250, 239, 0.85);
+
+  font-size: 19px;
 }
 
-.email {
-  display: inline-block;
-  margin-top: 20px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid var(--ink);
+.newsletter-form {
+  display: flex;
+
+  max-width: 560px;
+
+  margin: 40px auto 0;
+
+  border-bottom: 1px solid rgba(255, 250, 239, 0.65);
 }
 
-/* --------------------------------
+.newsletter-form input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 15px 0;
+
+  border: 0;
+  outline: none;
+
+  background: transparent;
+
+  color: #fffaf0;
+}
+
+.newsletter-form input::placeholder {
+  color: rgba(255, 250, 239, 0.65);
+}
+
+.newsletter-form button {
+  padding: 15px 0 15px 20px;
+
+  border: 0;
+  background: transparent;
+
+  color: #fffaf0;
+
+  cursor: pointer;
+}
+
+
+/* ---------------------------------------------------------
    FOOTER
--------------------------------- */
+   --------------------------------------------------------- */
 
 footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 25px;
+  padding: 65px 7vw 35px;
 
-  padding: 32px 5vw;
+  background: #302b25;
 
-  border-top: 1px solid var(--line);
-
-  font-size: 13px;
-  color: var(--muted);
+  color: #eee5d5;
 }
 
-footer strong {
-  color: var(--ink);
+.footer-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 50px;
+}
+
+.footer-brand {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 28px;
   letter-spacing: 0.18em;
 }
 
-footer p {
-  margin: 5px 0;
+.footer-tagline {
+  margin-top: 12px;
+
+  color: rgba(238, 229, 213, 0.65);
+
+  font-size: 15px;
 }
 
-/* --------------------------------
-   MOBILE
--------------------------------- */
+.footer-links {
+  display: flex;
+  gap: 30px;
 
-@media (max-width: 760px) {
+  font-size: 15px;
+}
+
+.footer-bottom {
+  margin-top: 65px;
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(238, 229, 213, 0.18);
+
+  color: rgba(238, 229, 213, 0.5);
+
+  font-size: 13px;
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 800px) {
 
   body {
     font-size: 17px;
   }
 
-  .header {
-    height: 68px;
-    padding: 0 6vw;
+  .navbar,
+  .site-nav {
+    min-height: 68px;
+
+    padding: 0 22px;
   }
 
-  .logo {
+  .logo,
+  .brand {
     font-size: 22px;
   }
 
-  .header nav {
-    gap: 13px;
-    font-size: 12px;
+  .nav-links {
+    gap: 15px;
+    font-size: 13px;
   }
+
 
   /* HERO */
 
   .hero {
     min-height: calc(100svh - 68px);
-    display: flex;
-    align-items: flex-end;
+
+    background-position: 62% center;
   }
 
-  .hero-image {
-    min-height: 100%;
-    background-position: center center;
+  .hero-content,
+  .hero-copy,
+  .hero-text {
+    width: 88%;
+
+    margin-left: 6%;
+
+    padding: 12vh 0 10vh;
   }
 
-  .hero-image::after {
-    background:
-      linear-gradient(
-        180deg,
-        rgba(20, 14, 10, 0.08) 10%,
-        rgba(20, 14, 10, 0.18) 38%,
-        rgba(20, 14, 10, 0.72) 100%
-      );
+  .hero h1 {
+    max-width: 90%;
+
+    font-size: clamp(4rem, 18vw, 6.5rem);
   }
 
-  .hero-copy {
-    width: 100%;
-    padding: 25vw 8vw 15vw;
-  }
-
-  .hero-copy h1 {
-    max-width: 100%;
-    margin: 20px 0 25px;
-    font-size: clamp(58px, 17vw, 82px);
-  }
-
-  .hero-copy p:not(.eyebrow) {
+  .hero p {
     max-width: 360px;
+
+    font-size: 18px;
   }
 
-  /* PHILOSOPHY */
 
-  .philosophy,
-  .collection,
-  .journal {
-    padding: 15vw 8vw;
+  /* SECTIONS */
+
+  .section {
+    padding: 75px 7%;
   }
 
-  .philosophy h2 {
-    font-size: clamp(48px, 13vw, 70px);
+  .section-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
   }
 
-  .philosophy > p:last-child {
-    margin-left: 0;
+  .philosophy h2,
+  .house h2 {
+    font-size: clamp(3rem, 13vw, 5rem);
   }
+
 
   /* COLLECTION */
 
-  .section-top {
-    display: block;
-    margin-bottom: 35px;
+  .collection-image {
+    aspect-ratio: 4 / 5;
   }
 
-  .section-top > p {
-    margin-top: 22px;
-    text-align: left;
-  }
-
-  .textile-hero {
-    height: 112vw;
-  }
-
-  .product-story {
-    margin: 16vw 0;
-  }
-
-  /* CRAFT */
-
-  .craft-image {
-    height: 105vw;
-  }
-
-  .quiet {
-    margin: 15vw 0;
-  }
-
-  /* HOUSE */
-
-  .house {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .house-image {
-    min-height: 105vw;
-  }
-
-  .house-copy {
-    padding: 15vw 8vw;
-  }
 
   /* JOURNAL */
 
-  .journal-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
+  .journal-item {
+    grid-template-columns: 40px 1fr;
+
+    gap: 15px;
   }
 
-  .journal-image {
-    height: 75vw;
+  .journal-arrow {
+    display: none;
   }
 
-  /* CONTACT */
-
-  .contact {
-    padding: 18vw 8vw;
+  .journal-title {
+    font-size: 25px;
   }
 
-  .contact h2 {
-    font-size: clamp(52px, 15vw, 78px);
+
+  /* NEWSLETTER */
+
+  .newsletter {
+    padding: 75px 7%;
   }
+
+  .newsletter-form {
+    display: block;
+
+    border-bottom: 0;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+
+    border-bottom: 1px solid rgba(255, 250, 239, 0.65);
+  }
+
+  .newsletter-form button {
+    width: 100%;
+
+    margin-top: 10px;
+
+    border-bottom: 1px solid rgba(255, 250, 239, 0.65);
+  }
+
 
   /* FOOTER */
 
-  footer {
-    flex-direction: column;
-    padding: 10vw 8vw;
+  .footer-inner {
+    display: block;
+  }
+
+  .footer-links {
+    margin-top: 35px;
+
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom {
+    margin-top: 45px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   SMALL PHONES
+   --------------------------------------------------------- */
+
+@media (max-width: 480px) {
+
+  .nav-links {
+    gap: 10px;
+    font-size: 12px;
+  }
+
+  .hero h1 {
+    font-size: 4.1rem;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 0.22em;
   }
 }
