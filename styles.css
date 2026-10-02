@@ -391,21 +391,37 @@ nav a:hover::after {
    --------------------------------------------------------- */
 
 .philosophy {
+  /* ---------------------------------------------------------
+   PHILOSOPHY
+   --------------------------------------------------------- */
+
+.philosophy {
+  padding: 140px 8vw 150px;
+
   background: var(--ivory);
 }
 
+.philosophy .eyebrow {
+  margin-bottom: 38px;
+}
+
 .philosophy h2 {
-  max-width: 850px;
+  max-width: 900px;
+
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
 }
 
 .philosophy h2 em {
   font-style: italic;
+  font-weight: 300;
 }
 
-.philosophy-copy {
+.philosophy > p:last-child {
   max-width: 620px;
 
-  margin-top: 40px;
+  margin-top: 55px;
 
   color: var(--soft-ink);
 
