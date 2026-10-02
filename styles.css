@@ -134,93 +134,64 @@ em {
 /* HERO */
 
 .hero {
-  min-height: 82vh;
-  display: grid;
-  grid-template-columns: 1.05fr .95fr;
-  align-items: stretch;
+  min-height: 88vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .hero-image {
-  min-height: 700px;
+  position: absolute;
+  inset: 0;
+  min-height: 100%;
+  background-image: url("pratha-hero.png");
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Warm dark veil so the writing remains readable */
+.hero-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background:
     linear-gradient(
       90deg,
-      rgba(53,42,31,.18),
-      transparent
-    ),
-    #8e806a;
-  position: relative;
-  overflow: hidden;
+      rgba(25, 18, 13, .58),
+      rgba(25, 18, 13, .18) 65%,
+      rgba(25, 18, 13, .12)
+    );
 }
 
-/* architectural arch */
-
+/* We don't need the temporary CSS arch anymore */
 .hero-architecture {
-  position: absolute;
-  width: 56%;
-  height: 76%;
-  left: 22%;
-  top: 12%;
-  border: 12px solid #4b4338;
-  border-bottom: 0;
-  border-radius: 50% 50% 0 0;
-}
-
-/* inner arch */
-
-.hero-architecture::after {
-  content: "";
-  position: absolute;
-  width: 75%;
-  height: 72%;
-  left: 12%;
-  top: 20%;
-  border: 4px solid #a16a50;
-  border-bottom: 0;
-  border-radius: 50% 50% 0 0;
-}
-
-/* tulsi */
-
-.hero-tulsi {
-  position: absolute;
-  width: 4px;
-  height: 38%;
-  bottom: 7%;
-  left: 49%;
-  background: var(--olive);
-}
-
-.hero-tulsi::before,
-.hero-tulsi::after {
-  content: "";
-  position: absolute;
-  width: 42px;
-  height: 17px;
-  background: var(--olive);
-  border-radius: 100% 0;
-}
-
-.hero-tulsi::before {
-  top: 25%;
-  right: 0;
-  transform: rotate(-35deg);
-}
-
-.hero-tulsi::after {
-  top: 50%;
-  left: 0;
-  transform: rotate(35deg);
+  display: none;
 }
 
 .hero-copy {
-  padding: 10vw 9vw 9vw 7vw;
-  align-self: center;
-  max-width: 680px;
+  position: relative;
+  z-index: 2;
+  width: min(650px, 90%);
+  padding: 10vw 7vw;
+  color: #fffaf0;
+}
+
+.hero-copy .eyebrow {
+  color: rgba(255, 250, 240, .82);
 }
 
 .hero-copy p:not(.eyebrow) {
-  max-width: 460px;
+  max-width: 470px;
+}
+
+.hero-copy .link {
+  border-bottom-color: #fffaf0;
+}
+
+.hero-copy h1 {
+  margin: 28px 0;
 }
 
 
