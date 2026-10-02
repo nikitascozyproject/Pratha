@@ -2,9 +2,10 @@
 
 :root {
   --paper: #f2ede3;
+  --paper-light: #f7f3ea;
   --ink: #29251f;
   --muted: #756d61;
-  --line: rgba(41, 37, 31, .18);
+  --line: rgba(41, 37, 31, 0.18);
   --olive: #5b6049;
   --terracotta: #9a5e49;
   --brown: #704331;
@@ -27,18 +28,19 @@ body {
   line-height: 1.48;
 }
 
-/* subtle paper texture */
+/* Subtle paper texture */
+
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: .16;
-  background-image:
-    radial-gradient(
-      rgba(40,37,31,.2) .4px,
-      transparent .4px
-    );
+  z-index: 999;
+  opacity: 0.12;
+  background-image: radial-gradient(
+    rgba(40, 37, 31, 0.25) 0.4px,
+    transparent 0.4px
+  );
   background-size: 5px 5px;
   mix-blend-mode: multiply;
 }
@@ -48,8 +50,9 @@ a {
   text-decoration: none;
 }
 
-
-/* HEADER */
+/* --------------------------------
+   HEADER
+-------------------------------- */
 
 .header {
   height: 76px;
@@ -59,13 +62,15 @@ a {
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
   position: relative;
-  z-index: 2;
+  z-index: 10;
   background: var(--paper);
 }
 
 .logo {
-  font: 500 25px/1 "Cormorant Garamond", serif;
-  letter-spacing: .18em;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
 }
 
 .header nav {
@@ -74,43 +79,49 @@ a {
   font-size: 14px;
 }
 
-.header nav a:hover,
-.link:hover {
-  opacity: .55;
+.header nav a {
+  transition: opacity 0.2s ease;
 }
 
+.header nav a:hover {
+  opacity: 0.5;
+}
 
-/* TYPE */
+/* --------------------------------
+   TYPOGRAPHY
+-------------------------------- */
 
 .eyebrow {
-  font: 500 11px/1.2 "Cormorant Garamond", serif;
-  letter-spacing: .2em;
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 11px;
+  line-height: 1.2;
+  letter-spacing: 0.2em;
   color: var(--muted);
 }
 
 h1,
 h2,
 h3 {
+  margin-top: 0;
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 400;
-  line-height: .96;
+  line-height: 0.96;
 }
 
 h1 {
   font-size: clamp(65px, 7vw, 112px);
-  letter-spacing: -.04em;
-  margin: 28px 0;
+  letter-spacing: -0.04em;
+  margin-bottom: 30px;
 }
 
 h2 {
   font-size: clamp(48px, 5.5vw, 78px);
-  letter-spacing: -.025em;
-  margin: 25px 0;
+  letter-spacing: -0.025em;
 }
 
 h3 {
   font-size: 38px;
-  margin: 14px 0;
 }
 
 em {
@@ -120,9 +131,14 @@ em {
 .link {
   display: inline-block;
   margin-top: 20px;
-  border-bottom: 1px solid var(--ink);
   padding-bottom: 5px;
+  border-bottom: 1px solid currentColor;
   font-size: 16px;
+  transition: opacity 0.2s ease;
+}
+
+.link:hover {
+  opacity: 0.55;
 }
 
 .link span,
@@ -130,28 +146,44 @@ em {
   margin-left: 15px;
 }
 
+/* --------------------------------
+   HERO
+-------------------------------- */
 
-/* HERO */
+/*
+   The photograph is the entire hero background.
+   File must be named:
+
+   pratha-hero.png
+*/
 
 .hero {
-  min-height: 88vh;
   position: relative;
+  min-height: calc(100vh - 76px);
   overflow: hidden;
   display: flex;
   align-items: center;
+  background: #5d5043;
 }
 
 .hero-image {
   position: absolute;
   inset: 0;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   background-image: url("pratha-hero.png");
   background-size: cover;
-  background-position: center;
+  background-position: center center;
+  background-repeat: no-repeat;
   z-index: 0;
 }
 
-/* Warm dark veil so the writing remains readable */
+/*
+   Gentle darkening over the photograph.
+   This lets the cream text remain readable
+   without making the image look artificial.
+*/
+
 .hero-image::after {
   content: "";
   position: absolute;
@@ -159,53 +191,65 @@ em {
   background:
     linear-gradient(
       90deg,
-      rgba(25, 18, 13, .58),
-      rgba(25, 18, 13, .18) 65%,
-      rgba(25, 18, 13, .12)
+      rgba(24, 17, 12, 0.68) 0%,
+      rgba(24, 17, 12, 0.42) 38%,
+      rgba(24, 17, 12, 0.12) 78%,
+      rgba(24, 17, 12, 0.05) 100%
     );
 }
 
-/* We don't need the temporary CSS arch anymore */
-.hero-architecture {
-  display: none;
+/*
+   These belonged to the old CSS illustration.
+   They are deliberately disabled.
+*/
+
+.hero-architecture,
+.hero-tulsi {
+  display: none !important;
 }
 
 .hero-copy {
   position: relative;
   z-index: 2;
   width: min(650px, 90%);
-  padding: 10vw 7vw;
+  padding: 9vw 7vw;
   color: #fffaf0;
 }
 
 .hero-copy .eyebrow {
-  color: rgba(255, 250, 240, .82);
-}
-
-.hero-copy p:not(.eyebrow) {
-  max-width: 470px;
-}
-
-.hero-copy .link {
-  border-bottom-color: #fffaf0;
+  color: rgba(255, 250, 240, 0.84);
 }
 
 .hero-copy h1 {
-  margin: 28px 0;
+  max-width: 620px;
+  margin-top: 25px;
+  margin-bottom: 30px;
 }
 
+.hero-copy p:not(.eyebrow) {
+  max-width: 450px;
+  color: rgba(255, 250, 240, 0.92);
+}
 
-/* PHILOSOPHY */
+.hero-copy .link {
+  color: #fffaf0;
+  border-bottom-color: #fffaf0;
+}
+
+/* --------------------------------
+   PHILOSOPHY
+-------------------------------- */
 
 .philosophy {
   padding: 11vw 9vw;
   border-top: 1px solid var(--line);
-  max-width: 1200px;
+  max-width: 1250px;
 }
 
 .philosophy h2 {
-  font-size: clamp(50px, 6vw, 86px);
   max-width: 950px;
+  margin: 25px 0 45px;
+  font-size: clamp(50px, 6vw, 86px);
 }
 
 .philosophy > p:last-child {
@@ -214,8 +258,9 @@ em {
   color: #5c554b;
 }
 
-
-/* COLLECTION */
+/* --------------------------------
+   COLLECTION
+-------------------------------- */
 
 .collection {
   padding: 9vw 9vw;
@@ -224,33 +269,41 @@ em {
 .section-top {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: flex-end;
   margin-bottom: 55px;
 }
 
+.section-top h2 {
+  margin: 20px 0 0;
+}
+
 .section-top > p {
+  margin: 0;
   color: var(--muted);
   text-align: right;
 }
 
-
-/* TEXTILE */
+/* --------------------------------
+   CHINIYA TEXTILE
+-------------------------------- */
 
 .textile-hero {
   position: relative;
+  width: 100%;
   max-width: 1050px;
   height: min(68vw, 720px);
-  margin: auto;
+  margin: 0 auto;
   overflow: hidden;
+
   background:
     repeating-linear-gradient(
       0deg,
-      rgba(78,48,20,.25) 0 2px,
+      rgba(78, 48, 20, 0.25) 0 2px,
       transparent 2px 9px
     ),
     repeating-linear-gradient(
       90deg,
-      rgba(93,58,25,.18) 0 1px,
+      rgba(93, 58, 25, 0.18) 0 1px,
       transparent 1px 13px
     ),
     linear-gradient(
@@ -265,46 +318,58 @@ em {
 .woven-textile {
   position: absolute;
   inset: 0;
+
   background:
     repeating-linear-gradient(
       45deg,
-      rgba(255,255,255,.13) 0 1px,
+      rgba(255, 255, 255, 0.13) 0 1px,
       transparent 1px 11px
     );
-  opacity: .8;
+
+  opacity: 0.8;
 }
 
 .textile-hero a {
   position: absolute;
   left: 30px;
   bottom: 28px;
+
   color: white;
   border-bottom: 1px solid white;
   padding-bottom: 4px;
-  text-shadow: 0 1px 8px #000;
+
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
 }
 
-
-/* PRODUCT STORY */
+/* --------------------------------
+   PRODUCT STORY
+-------------------------------- */
 
 .product-story {
   max-width: 590px;
   margin: 9vw 0 7vw auto;
 }
 
-.product-story p:not(.eyebrow),
-.quiet p:not(.eyebrow),
-.house-copy p:not(.eyebrow) {
+.product-story h2 {
+  margin: 20px 0 30px;
+}
+
+.product-story p:not(.eyebrow) {
   color: #595248;
 }
 
-
-/* CRAFT IMAGE */
+/* --------------------------------
+   CRAFT IMAGE
+-------------------------------- */
 
 .craft-image {
-  height: min(62vw, 650px);
+  position: relative;
+  width: 100%;
   max-width: 900px;
+  height: min(62vw, 650px);
   margin: 0 auto;
+  overflow: hidden;
+
   background:
     linear-gradient(
       120deg,
@@ -312,8 +377,6 @@ em {
       #b59d7b 45%,
       #514538
     );
-  position: relative;
-  overflow: hidden;
 }
 
 .craft-window {
@@ -322,6 +385,7 @@ em {
   height: 70%;
   left: 8%;
   top: 15%;
+
   border: 10px solid #50483c;
   background: #cbbda6;
 }
@@ -340,8 +404,8 @@ em {
 }
 
 .craft-window::after {
-  height: 6px;
   width: 100%;
+  height: 6px;
   top: 50%;
 }
 
@@ -351,17 +415,20 @@ em {
   height: 80%;
   right: 17%;
   bottom: 0;
+
   background:
     linear-gradient(
       120deg,
       #6b3024,
       #a3543b
     );
+
   border-radius: 50% 50% 0 0;
 }
 
-
-/* QUIET DETAILS */
+/* --------------------------------
+   QUIETER DETAILS
+-------------------------------- */
 
 .quiet {
   max-width: 650px;
@@ -369,22 +436,30 @@ em {
 }
 
 .quiet h2 {
+  margin: 20px 0 30px;
   font-size: clamp(50px, 5vw, 72px);
 }
 
+.quiet p:not(.eyebrow) {
+  color: #595248;
+}
 
-/* HOUSE */
+/* --------------------------------
+   THE HOUSE
+-------------------------------- */
 
 .house {
   display: grid;
   grid-template-columns: 1fr 1fr;
+
   border-top: 1px solid var(--line);
-  align-items: stretch;
 }
 
 .house-image {
-  min-height: 600px;
   position: relative;
+  min-height: 600px;
+  overflow: hidden;
+
   background:
     linear-gradient(
       135deg,
@@ -399,6 +474,7 @@ em {
   height: 65%;
   left: 21%;
   top: 15%;
+
   border: 9px solid #665d4e;
   background: #cfc2aa;
 }
@@ -406,10 +482,12 @@ em {
 .courtyard::before {
   content: "";
   position: absolute;
+
   width: 4px;
   height: 65%;
   left: 50%;
   bottom: 0;
+
   background: var(--olive);
 }
 
@@ -418,12 +496,21 @@ em {
   align-self: center;
 }
 
+.house-copy h2 {
+  margin: 20px 0 30px;
+}
+
 .house-copy p {
   max-width: 480px;
 }
 
+.house-copy p:not(.eyebrow) {
+  color: #595248;
+}
 
-/* JOURNAL */
+/* --------------------------------
+   JOURNAL
+-------------------------------- */
 
 .journal {
   padding: 10vw 9vw;
@@ -431,7 +518,7 @@ em {
 }
 
 .journal > h2 {
-  margin-bottom: 55px;
+  margin: 20px 0 55px;
 }
 
 .journal-grid {
@@ -441,8 +528,8 @@ em {
 }
 
 .journal article {
-  border-top: 1px solid var(--line);
   padding-top: 18px;
+  border-top: 1px solid var(--line);
 }
 
 .journal-image {
@@ -479,20 +566,27 @@ em {
 
 .journal small {
   color: var(--muted);
-  letter-spacing: .15em;
+  letter-spacing: 0.15em;
 }
 
 .journal article h3 {
+  margin: 14px 0;
   font-size: 34px;
 }
 
 .journal article p {
+  margin: 0;
   color: var(--muted);
   font-size: 17px;
 }
 
+.journal > .link {
+  margin-top: 55px;
+}
 
-/* CONTACT */
+/* --------------------------------
+   CONTACT
+-------------------------------- */
 
 .contact {
   padding: 11vw 7vw;
@@ -501,6 +595,7 @@ em {
 }
 
 .contact h2 {
+  margin: 25px 0 30px;
   font-size: clamp(55px, 7vw, 95px);
 }
 
@@ -510,35 +605,40 @@ em {
 
 .email {
   display: inline-block;
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 5px;
   margin-top: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--ink);
 }
 
-
-/* FOOTER */
+/* --------------------------------
+   FOOTER
+-------------------------------- */
 
 footer {
-  border-top: 1px solid var(--line);
-  padding: 32px 5vw;
   display: flex;
   justify-content: space-between;
   gap: 25px;
+
+  padding: 32px 5vw;
+
+  border-top: 1px solid var(--line);
+
   font-size: 13px;
   color: var(--muted);
 }
 
 footer strong {
   color: var(--ink);
-  letter-spacing: .18em;
+  letter-spacing: 0.18em;
 }
 
 footer p {
   margin: 5px 0;
 }
 
-
-/* MOBILE */
+/* --------------------------------
+   MOBILE
+-------------------------------- */
 
 @media (max-width: 760px) {
 
@@ -551,28 +651,54 @@ footer p {
     padding: 0 6vw;
   }
 
+  .logo {
+    font-size: 22px;
+  }
+
   .header nav {
     gap: 13px;
     font-size: 12px;
   }
 
+  /* HERO */
+
   .hero {
+    min-height: calc(100svh - 68px);
     display: flex;
-    flex-direction: column;
+    align-items: flex-end;
   }
 
   .hero-image {
-    min-height: 105vw;
-    max-height: 620px;
+    min-height: 100%;
+    background-position: center center;
+  }
+
+  .hero-image::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(20, 14, 10, 0.08) 10%,
+        rgba(20, 14, 10, 0.18) 38%,
+        rgba(20, 14, 10, 0.72) 100%
+      );
   }
 
   .hero-copy {
-    padding: 14vw 8vw;
+    width: 100%;
+    padding: 25vw 8vw 15vw;
   }
 
   .hero-copy h1 {
-    font-size: 64px;
+    max-width: 100%;
+    margin: 20px 0 25px;
+    font-size: clamp(58px, 17vw, 82px);
   }
+
+  .hero-copy p:not(.eyebrow) {
+    max-width: 360px;
+  }
+
+  /* PHILOSOPHY */
 
   .philosophy,
   .collection,
@@ -580,17 +706,24 @@ footer p {
     padding: 15vw 8vw;
   }
 
+  .philosophy h2 {
+    font-size: clamp(48px, 13vw, 70px);
+  }
+
   .philosophy > p:last-child {
     margin-left: 0;
   }
 
+  /* COLLECTION */
+
   .section-top {
     display: block;
+    margin-bottom: 35px;
   }
 
   .section-top > p {
-    text-align: left;
     margin-top: 22px;
+    text-align: left;
   }
 
   .textile-hero {
@@ -601,6 +734,8 @@ footer p {
     margin: 16vw 0;
   }
 
+  /* CRAFT */
+
   .craft-image {
     height: 105vw;
   }
@@ -608,6 +743,8 @@ footer p {
   .quiet {
     margin: 15vw 0;
   }
+
+  /* HOUSE */
 
   .house {
     display: flex;
@@ -622,6 +759,8 @@ footer p {
     padding: 15vw 8vw;
   }
 
+  /* JOURNAL */
+
   .journal-grid {
     grid-template-columns: 1fr;
     gap: 50px;
@@ -631,93 +770,20 @@ footer p {
     height: 75vw;
   }
 
+  /* CONTACT */
+
   .contact {
     padding: 18vw 8vw;
   }
 
+  .contact h2 {
+    font-size: clamp(52px, 15vw, 78px);
+  }
+
+  /* FOOTER */
+
   footer {
     flex-direction: column;
-  }
-}
-/* PRATHA HERO — FINAL OVERRIDE */
-
-.hero {
-  min-height: 88vh;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
-
-.hero-image {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  background-image: url("pratha-hero.png");
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-}
-
-.hero-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(25, 18, 13, 0.62),
-    rgba(25, 18, 13, 0.28) 60%,
-    rgba(25, 18, 13, 0.12)
-  );
-}
-
-.hero-architecture {
-  display: none;
-}
-
-.hero-tulsi {
-  display: none;
-}
-
-.hero-copy {
-  position: relative;
-  z-index: 2;
-  width: min(650px, 90%);
-  padding: 10vw 7vw;
-  color: #fffaf0;
-}
-
-.hero-copy .eyebrow {
-  color: rgba(255, 250, 240, 0.85);
-}
-
-.hero-copy p:not(.eyebrow) {
-  max-width: 470px;
-}
-
-.hero-copy .link {
-  color: #fffaf0;
-  border-bottom-color: #fffaf0;
-}
-
-@media (max-width: 760px) {
-  .hero {
-    min-height: 100svh;
-  }
-
-  .hero-image {
-    min-height: 100svh;
-  }
-
-  .hero-copy {
-    width: 100%;
-    padding: 24vw 8vw 18vw;
-    align-self: flex-end;
-  }
-
-  .hero-copy h1 {
-    font-size: 64px;
+    padding: 10vw 8vw;
   }
 }
