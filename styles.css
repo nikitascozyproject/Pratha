@@ -215,6 +215,24 @@ header {
   background-repeat: no-repeat;
 }
 
+/* Dark overlay behind hero text */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(20, 15, 11, 0.62) 0%,
+    rgba(20, 15, 11, 0.38) 38%,
+    rgba(20, 15, 11, 0.08) 70%,
+    rgba(20, 15, 11, 0) 100%
+  );
+
+  z-index: 2;
+  pointer-events: none;
+}
 
 /* Prevent any old split-image layout from surviving */
 
