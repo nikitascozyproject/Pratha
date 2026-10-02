@@ -1,7 +1,6 @@
 /* =========================================================
    PRATHA
    Indian heritage, made contemporary.
-   Editorial + heritage design system
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
@@ -201,8 +200,6 @@ nav a:hover::after {
   background: #3c3027;
 }
 
-/* Actual photograph */
-
 .hero-image {
   position: absolute;
   inset: 0;
@@ -220,8 +217,6 @@ nav a:hover::after {
   object-fit: cover;
   object-position: center center;
 }
-
-/* Darker area behind the text */
 
 .hero::before {
   content: "";
@@ -339,8 +334,6 @@ nav a:hover::after {
   background: var(--cream);
 }
 
-/* Collection introduction */
-
 .section-top {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
@@ -366,7 +359,9 @@ nav a:hover::after {
 }
 
 
-/* Textile feature */
+/* =========================================================
+   CHINIYA IMAGE
+   ========================================================= */
 
 .textile-hero {
   position: relative;
@@ -381,41 +376,29 @@ nav a:hover::after {
 
   background:
     linear-gradient(
-      135deg,
-      #a58d6e 0%,
-      #d2bfa0 35%,
-      #7f684f 70%,
-      #3d3027 100%
-    );
-}
+      90deg,
+      rgba(40, 30, 22, 0.12),
+      rgba(40, 30, 22, 0.04)
+    ),
+    url("pratha-chiniya-folded.png");
 
-/*
-   Abstract textile field.
-   This gives us a visual placeholder until
-   the actual Chiniya product photography exists.
-*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .woven-textile {
   position: absolute;
   inset: 0;
 
   background:
-    repeating-linear-gradient(
+    linear-gradient(
       90deg,
-      rgba(255,255,255,0.08) 0,
-      rgba(255,255,255,0.08) 1px,
-      transparent 1px,
-      transparent 7px
-    ),
-    repeating-linear-gradient(
-      0deg,
-      rgba(48,43,37,0.06) 0,
-      rgba(48,43,37,0.06) 1px,
-      transparent 1px,
-      transparent 8px
+      rgba(30, 20, 14, 0.12),
+      rgba(30, 20, 14, 0)
     );
 
-  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 .textile-hero > a {
@@ -433,7 +416,9 @@ nav a:hover::after {
 }
 
 
-/* Product story */
+/* =========================================================
+   PRODUCT STORY
+   ========================================================= */
 
 .product-story {
   max-width: 850px;
@@ -473,66 +458,34 @@ nav a:hover::after {
 }
 
 
-/* Craft image */
+/* =========================================================
+   WOMAN WEARING SHAWL
+   ========================================================= */
 
 .craft-image {
   position: relative;
 
-  min-height: 55vh;
+  min-height: 65vh;
 
   overflow: hidden;
 
   background:
-    linear-gradient(
-      135deg,
-      #665541,
-      #c0a77f 45%,
-      #514537
-    );
+    url("pratha-woman-shawl.png");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
-/* Architectural suggestion */
-
-.craft-window {
-  position: absolute;
-
-  width: 42%;
-  height: 72%;
-
-  left: 13%;
-  top: 14%;
-
-  border: 10px solid rgba(242,238,227,0.72);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(78,90,61,0.7),
-      rgba(45,55,36,0.3)
-    );
-}
-
+.craft-window,
 .craft-person {
-  position: absolute;
-
-  width: 28%;
-  height: 68%;
-
-  right: 17%;
-  bottom: 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      #8d4932,
-      #5a3026
-    );
-
-  transform: skewX(-5deg);
+  display: none;
 }
 
 
-/* Quiet section */
+/* =========================================================
+   QUIET SECTION
+   ========================================================= */
 
 .quiet {
   max-width: 900px;
@@ -576,35 +529,18 @@ nav a:hover::after {
 
   overflow: hidden;
 
-  background:
-    linear-gradient(
-      135deg,
-      #6b5b49,
-      #c5b293 48%,
-      #5a4939
-    );
+  background-color: #e9e0cf;
+
+  background-image:
+    url("pratha-floral-monogram.png");
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Courtyard atmosphere */
-
 .courtyard {
-  position: absolute;
-  inset: 9%;
-
-  border: 1px solid rgba(242,238,227,0.5);
-
-  background:
-    radial-gradient(
-      circle at 50% 75%,
-      rgba(78,90,61,0.75),
-      transparent 25%
-    ),
-    linear-gradient(
-      90deg,
-      rgba(242,238,227,0.18),
-      transparent 35%,
-      rgba(48,43,37,0.18)
-    );
+  display: none;
 }
 
 .house-copy {
@@ -675,39 +611,30 @@ nav a:hover::after {
   margin-bottom: 28px;
 
   overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* Three slightly different atmospheric treatments */
+
+/* =========================================================
+   JOURNAL IMAGES
+   ========================================================= */
 
 .textile-detail {
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #8d4932 0,
-      #8d4932 3px,
-      #b77c62 3px,
-      #b77c62 7px
-    );
+  background-image:
+    url("pratha-textile-detail.png");
 }
 
 .loom-detail {
-  background:
-    linear-gradient(
-      135deg,
-      #5c4d3b,
-      #b39b76 50%,
-      #493a2f
-    );
+  background-image:
+    url("pratha-weaver-hands.png");
 }
 
 .stone-detail {
-  background:
-    linear-gradient(
-      135deg,
-      #aaa08d,
-      #e0d7c5 50%,
-      #756b5d
-    );
+  background-image:
+    url("pratha-architecture-detail.png");
 }
 
 .journal-grid small {
@@ -747,31 +674,85 @@ nav a:hover::after {
 
 
 /* =========================================================
-   CONTACT
+   CONTACT / FINAL IMAGE SECTION
    ========================================================= */
 
 .contact {
-  padding: 145px 7vw 160px;
+  position: relative;
 
-  background: var(--ivory);
+  min-height: 72vh;
+
+  padding: 150px 7vw 165px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    url("pratha-floral-textile.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   text-align: center;
+
+  color: #fffaf0;
+}
+
+
+/* Image-darkening layer.
+   Keeps all text readable while preserving the photograph. */
+
+.contact::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(38, 25, 17, 0.42),
+      rgba(38, 25, 17, 0.58)
+    );
+
+  z-index: 0;
+}
+
+.contact > * {
+  position: relative;
+  z-index: 1;
 }
 
 .contact .eyebrow {
   margin-bottom: 35px;
+
+  color: rgba(255,250,240,0.78);
 }
 
 .contact h2 {
   max-width: 850px;
 
   margin: 0 auto;
+
+  color: #fffaf0;
+
+  text-shadow:
+    0 2px 16px rgba(0,0,0,0.28);
+}
+
+.contact h2 em {
+  color: #fffaf0;
 }
 
 .contact > p:not(.eyebrow) {
   margin-top: 40px;
 
-  color: var(--soft-ink);
+  color: rgba(255,250,240,0.92);
 
   font-size: 19px;
 }
@@ -783,7 +764,9 @@ nav a:hover::after {
   margin-top: 40px;
   padding-bottom: 6px;
 
-  border-bottom: 1px solid var(--ink);
+  color: #fffaf0;
+
+  border-bottom: 1px solid rgba(255,250,240,0.75);
 
   font-size: 17px;
 }
@@ -834,7 +817,6 @@ footer p {
 
   .section-top {
     grid-template-columns: 1fr;
-
     gap: 30px;
   }
 
@@ -848,7 +830,7 @@ footer p {
   }
 
   .house-image {
-    min-height: 55vh;
+    min-height: 65vh;
   }
 
   .house-copy {
@@ -879,7 +861,6 @@ footer p {
 
   header {
     min-height: 68px;
-
     padding: 0 22px;
   }
 
@@ -889,9 +870,9 @@ footer p {
 
   nav {
     gap: 14px;
-
     font-size: 13px;
   }
+
 
   /* HERO */
 
@@ -934,7 +915,6 @@ footer p {
 
   .philosophy > p:last-child {
     margin-top: 42px;
-
     font-size: 18px;
   }
 
@@ -954,7 +934,7 @@ footer p {
   }
 
   .textile-hero {
-    min-height: 55vh;
+    min-height: 58vh;
   }
 
   .textile-hero > a {
@@ -970,7 +950,9 @@ footer p {
   }
 
   .craft-image {
-    min-height: 48vh;
+    min-height: 58vh;
+
+    background-position: center;
   }
 
   .quiet {
@@ -985,7 +967,9 @@ footer p {
   /* HOUSE */
 
   .house-image {
-    min-height: 48vh;
+    min-height: 58vh;
+
+    background-size: 85%;
   }
 
   .house-copy {
@@ -1009,25 +993,35 @@ footer p {
 
   .journal-grid {
     grid-template-columns: 1fr;
-
     gap: 55px;
   }
 
   .journal-grid article:last-child {
     grid-column: auto;
-
     max-width: none;
+  }
+
+  .journal-image {
+    aspect-ratio: 4 / 3;
   }
 
 
   /* CONTACT */
 
   .contact {
-    padding: 100px 7% 115px;
+    min-height: 78vh;
+
+    padding: 110px 7% 125px;
+
+    background-position: center center;
   }
 
   .contact h2 {
     font-size: clamp(3.2rem, 13vw, 5rem);
+  }
+
+  .contact > p:not(.eyebrow) {
+    max-width: 330px;
   }
 
 
@@ -1042,7 +1036,6 @@ footer p {
   footer > div {
     margin-bottom: 30px;
   }
-
 }
 
 
@@ -1054,7 +1047,6 @@ footer p {
 
   nav {
     gap: 10px;
-
     font-size: 12px;
   }
 
@@ -1067,4 +1059,12 @@ footer p {
     font-size: 4rem;
   }
 
+  .house-image {
+    min-height: 52vh;
+    background-size: 92%;
+  }
+
+  .contact {
+    min-height: 75vh;
+  }
 }
