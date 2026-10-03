@@ -380,7 +380,7 @@ nav a:hover::after {
       rgba(40, 30, 22, 0.12),
       rgba(40, 30, 22, 0.04)
     ),
-    url("pratha-chiniya-folded.png");
+    url("pratha-chiniya-folded.PNG");
 
   background-size: cover;
   background-position: center;
@@ -470,7 +470,7 @@ nav a:hover::after {
   overflow: hidden;
 
   background:
-    url("pratha-woman-shawl.png");
+    url("pratha-woman-shawl.PNG");
 
   background-size: cover;
   background-position: center center;
@@ -532,7 +532,7 @@ nav a:hover::after {
   background-color: #e9e0cf;
 
   background-image:
-    url("pratha-floral-monogram.png");
+    url("pratha-floral-monogram.PNG");
 
   background-size: contain;
   background-position: center;
@@ -624,17 +624,17 @@ nav a:hover::after {
 
 .textile-detail {
   background-image:
-    url("pratha-textile-detail.png");
+    url("pratha-textile-detail.PNG");
 }
 
 .loom-detail {
   background-image:
-    url("pratha-weaver-hands.png");
+    url("pratha-weaver-hands.PNG");
 }
 
 .stone-detail {
   background-image:
-    url("pratha-architecture-detail.png");
+    url("pratha-architecture-detail.PNG");
 }
 
 .journal-grid small {
@@ -692,7 +692,7 @@ nav a:hover::after {
   overflow: hidden;
 
   background:
-    url("pratha-floral-textile.png");
+    url("pratha-floral-textile.PNG");
 
   background-size: cover;
   background-position: center;
